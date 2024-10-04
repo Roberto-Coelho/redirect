@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="nwfrmts.css">
+    <title>Download App Tradutor Multilingue</title>
+</head>
+<body>
+
+<p>Download App Tradutor Multilingue:</p>
+<br>
+
+<form>
+    <label for="tlamale">
+        <input id="tlamale" class="w3-radio" type="radio" name="device" value="celular"> - Celular
+    </label><br>
+    
+    <label for="tlamale1">
+        <input id="tlamale1" class="w3-radio" type="radio" name="device" value="tablet"> - Tablet
+    </label><br>
+    
+    <label for="tlamale2">
+        <input id="tlamale2" class="w3-radio" type="radio" name="device" value="computador"> - Computador
+    </label><br>
+    
+    <label for="tlamale3">
+        <input id="tlamale3" class="w3-radio" type="radio" name="device" value="outros"> - Outros ****
+    </label><br><br><br>
+
+    <button type="button" class="w3-bar-item w3-blue w3-button" onClick="processa_escolha();">
+        DOWNLOAD APP
+    </button>
+</form>
+
+<script>
+function processa_escolha() {
+    var destino = "";
+    var select_app = 0;
+    var url = "";
+
+    var xy = document.getElementById("tlamale");
+    var xy1 = document.getElementById("tlamale1");
+    var xy2 = document.getElementById("tlamale2");
+    var xy3 = document.getElementById("tlamale3");
+
+    if (xy.checked) { 
+        select_app = 1; 
+        destino = "Celular"; 
+        url = "https://drive.google.com/uc?export=download&id=1EN1G4P95YUwMl7c_IKesBIL1Zx2ZOPdw"; // URL para celular
+    }
+    if (xy1.checked) { 
+        select_app = 2; 
+        destino = "Tablet"; 
+        url = "https://drive.google.com/uc?export=download&id=1EN1G4P95YUwMl7c_IKesBIL1Zx2ZOPdw"; // URL para tablet
+    }
+    if (xy2.checked) { 
+        select_app = 3; 
+        destino = "Computador"; 
+        url = "https://drive.google.com/uc?export=download&id=1qdQZdbFLKPmcb4Xy7fD6x5SAqjX1INem"; // URL para computador
+    }
+    if (xy3.checked) { 
+        select_app = 4; 
+        destino = "Outros"; 
+        url = "https://drive.google.com/uc?export=download&id=1qdQZdbFLKPmcb4Xy7fD6x5SAqjX1INem"; // URL para outros dispositivos
+    }
+
+    if (select_app === 0) {
+        alert("Escolha uma opção e tente novamente !!!");
+        return;
+    }
+
+    var respns = confirm("Deseja INSTALAR o app num " + destino + " ?");
+    
+    if (respns) {
+        // Redireciona para a URL correspondente
+        window.location.href = url;
+    }
+}
+</script>
+
+</body>
+</html>
